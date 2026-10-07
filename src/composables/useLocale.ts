@@ -27,7 +27,12 @@ export function useLocale() {
 
 /** ერთი და იგივე გვერდის მისამართი სხვა ენაზე */
 export function switchLocalePath(path: string, from: Locale, target: Locale) {
-  const bare = from === 'ka' ? path : path.replace(new RegExp(`^/${from}(?=/|$)`), '') || '/'
+  // `//evil.com` ბრაუზერისთვის გარე მისამართია (protocol-relative) - ზედმეტ „/“-ებს ვაერთიანებთ
+  const safe = path.replace(/^\/+/, '/')
+  const bare =
+    from === 'ka'
+      ? safe
+      : safe.replace(new RegExp(`^/${from}(?=/|$)`), '').replace(/^\/+/, '/') || '/'
   const prefix = localePrefix(target)
   if (!prefix) return bare
   return bare === '/' ? prefix : `${prefix}${bare}`

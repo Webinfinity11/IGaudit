@@ -1,0 +1,76 @@
+@layer base {
+  :root {
+    --header-h: 76px;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ink-50 text-ink-800 font-sans antialiased;
+    line-height: 1.6;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    /* ქართული გრძელი სიტყვები (მაგ. „კონფიდენციალურობის“) ვიწრო ეკრანზე */
+    overflow-wrap: break-word;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-800);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: var(--color-brand-800);
+    color: var(--color-ink-50);
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-5 md:px-10;
+  }
+  /* ლათინური ტექსტი / ციფრები - Jost */
+  .latin {
+    font-family: var(--font-latin);
+  }
+  .h-display {
+    @apply text-ink-900 font-extrabold tracking-tight;
+    line-height: 1.1;
+  }
+}
+
+/*
+ * ანიმაციის საწყისი მდგომარეობა მხოლოდ JS-ით (html.js - index.html-ში).
+ * JS-ის გარეშე ან reduced-motion-ისას კონტენტი ყოველთვის ჩანს.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 24px));
+  }
+  html.js [data-reveal-group] > * {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  html.js [data-hero-line] {
+    transform: translateY(110%);
+  }
+  html.js .scroll-word {
+    opacity: 0.18;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

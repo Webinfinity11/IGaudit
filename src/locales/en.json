@@ -1,0 +1,373 @@
+{
+  "meta": {
+    "siteName": "IG GROUP",
+    "home": {
+      "title": "IG GROUP - Audit and Accounting Services in Georgia",
+      "description": "Registered audit firm SARAS-F-412837. Audit, accounting, tax risk assessment, consulting, property and business valuation."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "IG GROUP - a registered audit firm since 2011. Certified auditors, chief accountants and a lawyer; professional liability insured."
+    },
+    "services": {
+      "title": "Services",
+      "description": "Audit, accounting, tax, consulting and valuation services in one place - IG GROUP."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact us: 4 Nodar Bokhua St., +995 593 56 15 90. Share your task and we will offer a tailored solution."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "How IG GROUP processes personal data, cookies and analytics."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "The requested page does not exist."
+    }
+  },
+  "common": {
+    "skipToContent": "Skip to main content",
+    "contactUs": "Contact us",
+    "learnMore": "Learn more",
+    "sendRequest": "Send a request",
+    "requestConsultation": "Request a consultation",
+    "readMore": "Details",
+    "idCode": "ID",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "workingHours": "Working hours",
+    "logoAlt": "IG GROUP - logo",
+    "initials": "No photo"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "allServices": "All services",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "mainMenu": "Main menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "breadcrumbs": "Breadcrumbs"
+  },
+  "footer": {
+    "navTitle": "Navigation",
+    "contactTitle": "Contact",
+    "servicesTitle": "Services",
+    "copyright": "© {year} IG GROUP",
+    "tagline": "Accuracy. Confidentiality. Reliability. A registered audit firm since 2011."
+  },
+  "home": {
+    "hero": {
+      "title": "Accuracy. Confidentiality. Reliability.",
+      "subtitle": "Audit, accounting, tax and valuation services in one place. Your company's finances are in trusted hands.",
+      "registered": "Registered audit firm",
+      "insured": "Professional liability insured",
+      "servicesButton": "Our services",
+      "facts": {
+        "registration": "Registration",
+        "market": "In business",
+        "marketValue": "since 2011",
+        "team": "Team",
+        "teamValue": "2 auditors, 5 accountants",
+        "liability": "Liability",
+        "liabilityValue": "insured"
+      }
+    },
+    "about": {
+      "eyebrow": "About us",
+      "title": "Financial tasks, simplified",
+      "text": "IG GROUP helps companies simplify their financial tasks so they can devote their time and energy to growing the business. Our approach is built on an in-depth understanding of each client's needs.",
+      "stats": {
+        "years": "years in business",
+        "auditors": "certified auditors",
+        "accountants": "chief accountants",
+        "since": "in business since"
+      }
+    },
+    "services": {
+      "eyebrow": "Services",
+      "title": "How we can help",
+      "text": "Six areas that cover your company's financial, tax and valuation needs."
+    },
+    "why": {
+      "eyebrow": "Why IG GROUP",
+      "title": "A partner you can trust",
+      "items": {
+        "trust": {
+          "title": "Reliability",
+          "text": "Client information is kept strictly confidential."
+        },
+        "professionalism": {
+          "title": "Professionalism",
+          "text": "We work in line with professional standards and the law."
+        },
+        "experience": {
+          "title": "Experience",
+          "text": "15 years of experience with companies in trade, construction, manufacturing, services, agriculture, logistics and telecommunications."
+        },
+        "focus": {
+          "title": "Focus on your goals",
+          "text": "Solutions tailored to your business."
+        }
+      }
+    },
+    "clients": {
+      "title": "Trusted by",
+      "insurance": {
+        "title": "Professional insurance",
+        "text": "Our professional liability is insured."
+      },
+      "team": {
+        "title": "Team",
+        "text": "2 certified auditors, 5 chief accountants and a lawyer."
+      }
+    },
+    "cta": {
+      "title": "Focused on tomorrow",
+      "text": "Share your task with us. We will get back to you with a solution tailored to your needs."
+    },
+    "statement": "IG GROUP helps companies simplify their financial tasks so they can devote their time and energy to growing the business."
+  },
+  "about": {
+    "eyebrow": "About us",
+    "title": "The key to your success is in trusted hands",
+    "intro": "IG GROUP is a registered audit firm (SARAS-F-412837) offering companies audit, accounting, tax, consulting and valuation services. Our team includes certified auditors, chief accountants and a lawyer, and the company's professional liability is insured. The company has been operating since 2011.",
+    "mission": {
+      "title": "Our mission",
+      "paragraphs": [
+        "Today, as technology and the business environment change at an ever faster pace, a company's success largely depends on managing time well and focusing on what matters most.",
+        "That is why you need a financial partner who saves you time and energy and simplifies complex financial tasks.",
+        "At IG GROUP every engagement begins with an in-depth study of the client's needs - so that our solution fits your business precisely."
+      ]
+    },
+    "values": {
+      "title": "Our values",
+      "items": {
+        "focus": {
+          "title": "Focus on goals",
+          "text": "We work to achieve your business goals, not merely to meet formal requirements."
+        },
+        "trust": {
+          "title": "Reliability",
+          "text": "Client information is strictly confidential, and our conclusions are independent and objective."
+        },
+        "professionalism": {
+          "title": "Professionalism",
+          "text": "We act in full compliance with professional standards and applicable law."
+        },
+        "responsibility": {
+          "title": "Strong sense of responsibility",
+          "text": "We stand behind the quality of our work and our deadlines."
+        },
+        "adaptability": {
+          "title": "Adaptability",
+          "text": "We constantly follow legislative and technological changes and communicate them to clients in good time."
+        },
+        "experience": {
+          "title": "Experience",
+          "text": "Since 2011 we have helped companies in trade, construction, manufacturing, services, agriculture, logistics and telecommunications manage their financial and tax matters."
+        }
+      }
+    },
+    "team": {
+      "title": "Our team",
+      "intro": "Our team brings together certified auditors, experienced accountants and a lawyer, so your financial, tax and legal matters are handled in one place.",
+      "total": "professionals on one team",
+      "roles": {
+        "auditors": "Certified auditors",
+        "accountants": "Chief accountants",
+        "pm": "Project manager",
+        "lawyer": "Lawyer"
+      }
+    },
+    "insurance": {
+      "title": "Professional insurance",
+      "text": "IG GROUP's professional liability is insured. This is an additional guarantee for clients that our services are delivered with full responsibility.",
+      "insurer": "Insurer: {insurer}"
+    },
+    "independence": {
+      "title": "Principle of independence",
+      "text": "We provide audit services in strict compliance with independence requirements."
+    },
+    "titleLead": "The key to your success is",
+    "titleAccent": "in trusted hands",
+    "lead": "IG GROUP is a registered audit firm ({saras}) offering companies audit, accounting, tax, consulting and valuation services. The company has been operating since 2011.",
+    "stats": {
+      "years": "years in business",
+      "team": "professionals on the team"
+    }
+  },
+  "servicesPage": {
+    "eyebrow": "Services",
+    "title": "Financial services in one place",
+    "intro": "From audit to business valuation: six areas that cover your company's financial, tax and valuation needs.",
+    "includes": "The service includes:",
+    "other": "Other services",
+    "titleLead": "Financial services",
+    "titleAccent": "in one place",
+    "firmCard": "2 certified auditors · professional liability insured"
+  },
+  "services": {
+    "audit": {
+      "title": "Audit services",
+      "short": "Independent audit of financial statements in line with international standards.",
+      "heading": "An independent opinion people trust",
+      "intro": "A financial statement audit strengthens the trust of investors, banks and partners in your company. We conduct audits in accordance with International Standards on Auditing (ISA).",
+      "items": [
+        "Statutory and voluntary audits of financial statements;",
+        "Reviews of financial information;",
+        "Agreed-upon procedures;",
+        "Recommendations to improve internal control (management letter)."
+      ]
+    },
+    "accounting": {
+      "title": "Accounting services",
+      "short": "Full bookkeeping and preparation of financial statements.",
+      "heading": "Entrust your accounting to professionals",
+      "intro": "Accurate and timely accounting is the foundation of sound management. We take care of it so you can focus on your business.",
+      "items": [
+        "Full-cycle bookkeeping;",
+        "Preparation and filing of tax returns;",
+        "Preparation of financial statements (IFRS / IFRS for SMEs);",
+        "Payroll accounting;",
+        "Review and restoration of existing records."
+      ]
+    },
+    "tax-risk": {
+      "title": "Tax risk assessment",
+      "short": "Identifying tax risks early, before they turn into penalties.",
+      "heading": "A successful business without penalties",
+      "note": "Recommendations are based on current tax legislation",
+      "intro": "It is better to identify a tax risk in advance than during a tax audit. We analyse your operations and documentation and propose ways to reduce risk.",
+      "items": [
+        "Diagnostics of tax obligations;",
+        "Identification and assessment of weak points;",
+        "Recommendations to eliminate risks;",
+        "Support in preparing for a tax audit."
+      ]
+    },
+    "consulting": {
+      "title": "Consulting services",
+      "short": "Financial and tax advice for important decisions.",
+      "heading": "Time to seek financial advice from experts",
+      "intro": "An important business decision requires precise financial and tax analysis. We help you make the right choice.",
+      "items": [
+        "Tax consulting;",
+        "Financial consulting and analysis;",
+        "Advice on starting a new business or restructuring;",
+        "Methodological support in preparing financial statements."
+      ]
+    },
+    "property-valuation": {
+      "title": "Property valuation",
+      "short": "Objective valuation of real estate and movable property.",
+      "heading": "Objective valuation for the right decision",
+      "intro": "A well-founded estimate of market value for a bank, a court, a purchase or sale, or accounting purposes.",
+      "items": [
+        "Valuation of real estate (residential, commercial, land);",
+        "Valuation of movable property (vehicles, machinery and equipment, inventory);",
+        "Preparation of an official valuation report."
+      ]
+    },
+    "business-valuation": {
+      "title": "Business valuation",
+      "short": "Well-founded valuation of a company or an equity stake.",
+      "heading": "Know the real value of your business",
+      "intro": "Valuing a company or a stake is essential when attracting investment, buying or selling a share, reorganising, or in a dispute.",
+      "items": [
+        "Valuation of enterprises and equity stakes;",
+        "Valuation of intangible assets;",
+        "A valuation report with a justified methodology."
+      ]
+    },
+    "other": {
+      "title": "Other"
+    }
+  },
+  "contact": {
+    "title": "Contact us",
+    "text": "Share your task and we will get back to you within one business day.",
+    "infoTitle": "Contact information",
+    "formTitle": "Request form",
+    "mapTitle": "Map - 4 Nodar Bokhua St.",
+    "openMap": "Open in Google Maps",
+    "form": {
+      "name": "Full name",
+      "company": "Company name",
+      "phone": "Phone",
+      "email": "Email",
+      "service": "Service",
+      "servicePlaceholder": "Select a service",
+      "message": "Message",
+      "consent": "I agree to the processing of my personal data in accordance with the",
+      "consentLink": "Privacy Policy",
+      "consentSuffix": "",
+      "optional": "optional",
+      "required": "required",
+      "submit": "Send",
+      "sending": "Sending…",
+      "honeypot": "Leave this field empty",
+      "success": "Thank you! Your request has been received, we will contact you shortly.",
+      "error": "The message could not be sent. Please try again or call us at {phone}.",
+      "subject": "New website request - {service}",
+      "placeholders": {
+        "name": "Jane Smith",
+        "phone": "+995 5__ __ __ __",
+        "email": "name{'@'}company.com",
+        "message": "Briefly tell us about your task…"
+      }
+    },
+    "errors": {
+      "required": "This field is required",
+      "nameLength": "Use 2–100 characters",
+      "companyLength": "Maximum 150 characters",
+      "phone": "Enter a valid number (9–15 digits)",
+      "email": "Enter a valid email address",
+      "messageLength": "Maximum 2000 characters",
+      "consent": "Consent is required",
+      "captcha": "Please confirm you are not a robot"
+    },
+    "showMap": "Load map"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "draftNote": "Working draft. The final text will be confirmed with a lawyer.",
+    "sections": [
+      {
+        "title": "What data we collect",
+        "text": "Through the contact form we receive the information you provide: your name, company name, phone number, email address, selected service and message."
+      },
+      {
+        "title": "Purpose of processing",
+        "text": "The data is used solely to respond to your request and offer the relevant service. It is not shared with third parties, except for the technical form delivery service."
+      },
+      {
+        "title": "Cookies and analytics",
+        "text": "We use an analytics service to understand how the site is used; it is enabled only after you give consent. You can change your choice by clearing your browser data."
+      },
+      {
+        "title": "Your rights",
+        "text": "You have the right to request access to, correction or deletion of your data. To do so, contact us using the details below."
+      }
+    ],
+    "contactTitle": "Contact",
+    "toc": "Contents"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The link may be outdated or the address may have been mistyped.",
+    "home": "Go to home page"
+  },
+  "cookies": {
+    "text": "We use cookies to analyse how the site is used. Analytics is enabled only with your consent.",
+    "more": "Learn more",
+    "accept": "Accept",
+    "reject": "Reject",
+    "label": "Cookie notice"
+  }
+}

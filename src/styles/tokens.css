@@ -1,0 +1,68 @@
+/*
+ * დიზაინ-ტოკენები - design/tokens.json-დან (ერთადერთი წყარო ფერებისა და შრიფტისთვის).
+ * brand (Plum) = ლოგოს „IG“ #540061, accent (Forest) = ლოგოს „group“ #014501, ink = ქაღალდი/ტექსტი.
+ */
+@theme {
+  --color-*: initial;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --color-brand-50: #fbf6fb;
+  --color-brand-100: #f4e9f5;
+  --color-brand-200: #e8d2eb;
+  --color-brand-300: #d3aed8;
+  --color-brand-400: #b47fbd;
+  --color-brand-500: #91509c;
+  --color-brand-600: #74327f;
+  --color-brand-700: #5f1d6a;
+  --color-brand-800: #540061;
+  --color-brand-900: #3e0044;
+  --color-brand-950: #26002a;
+
+  --color-accent-50: #f4f7f1;
+  --color-accent-100: #e5eedf;
+  --color-accent-200: #cadcbf;
+  --color-accent-300: #a4c497;
+  --color-accent-400: #76a567;
+  --color-accent-500: #518743;
+  --color-accent-600: #3b6c30;
+  --color-accent-700: #275722;
+  --color-accent-800: #144b10;
+  --color-accent-900: #014501;
+  --color-accent-950: #012601;
+
+  --color-ink-50: #faf8f5;
+  --color-ink-100: #f3f0eb;
+  --color-ink-200: #e7e2db;
+  --color-ink-300: #d3ccc3;
+  --color-ink-400: #a8a097;
+  --color-ink-500: #7a736b;
+  --color-ink-600: #5c5650;
+  --color-ink-700: #433e3a;
+  --color-ink-800: #2c2826;
+  --color-ink-900: #1d1a19;
+  --color-ink-950: #100e0d;
+
+  --color-danger-50: #fff1f2;
+  --color-danger-600: #e11d48;
+  --color-danger-700: #be123c;
+
+  --font-sans: 'Jost Variable', 'Noto Sans Georgian Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-latin: 'Jost Variable', 'Noto Sans Georgian Variable', sans-serif;
+
+  --radius-btn: 0.5rem;
+  --radius-card: 1.25rem;
+  --radius-field: 0.5rem;
+  --radius-pill: 9999px;
+  --radius-panel: 28px;
+
+  --shadow-xs: 0 1px 2px 0 rgb(15 23 42 / 0.05);
+  --shadow-card: 0 1px 2px 0 rgb(62 0 68 / 0.04), 0 4px 16px -6px rgb(62 0 68 / 0.08);
+  --shadow-pop: 0 18px 40px -16px rgb(62 0 68 / 0.22);
+  --shadow-float: 0 24px 60px -20px rgb(15 23 42 / 0.35);
+
+  --container-site: 75rem; /* 1200 */
+  --ease-out-brand: cubic-bezier(0.22, 1, 0.36, 1);
+}

@@ -22,7 +22,12 @@ export function useLocale() {
     }
   }
 
-  return { locale, to }
+  /** ქვე-სერვისის გვერდი: /services/<slug>/<sub> */
+  function toSub(slug: ServiceSlug, sub: string): RouteLocationRaw {
+    return { name: routeName(locale.value, 'subservice'), params: { slug, sub } }
+  }
+
+  return { locale, to, toSub }
 }
 
 /** ერთი და იგივე გვერდის მისამართი სხვა ენაზე */

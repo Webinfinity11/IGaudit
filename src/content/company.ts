@@ -6,8 +6,12 @@ export const company = {
   saras: 'SARAS-F-412837',
   phone: '+995 593 56 15 90',
   phoneHref: 'tel:+995593561590',
-  email: '', // [დასაზუსტებელი]
-  address: { ka: 'ნოდარ ბოხუას ქ. 4', en: '4 Nodar Bokhua St.' },
+  email: 'info@igaudit.ge',
+  linkedin: 'https://www.linkedin.com/company/145277764/',
+  address: {
+    ka: 'ნოდარ ბოხუას ქ. 4, მიონის ბიზნეს ცენტრი',
+    en: '4 Nodar Bokhua St., Mion Business Center',
+  },
   city: { ka: 'თბილისი', en: 'Tbilisi' },
   workingHours: { ka: '', en: '' }, // [დასაზუსტებელი, მაგ. ორშ–პარ, 10:00–19:00]
   insurer: { ka: 'ჯიპიაი ჰოლდინგი', en: 'GPI Holding' },

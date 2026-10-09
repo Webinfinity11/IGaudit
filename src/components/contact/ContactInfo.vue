@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { Clock, Mail, MapPin, Phone } from 'lucide-vue-next'
-import { computed } from 'vue'
+import { computed, type Component } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { company } from '@/content/company'
 import { useLocale } from '@/composables/useLocale'
+import Linkedin from '@/components/ui/LinkedinIcon.vue'
 
 const { t } = useI18n()
 const { locale } = useLocale()
@@ -30,17 +31,25 @@ const rows = computed(
         href: `mailto:${company.email}`,
         latin: true,
       },
+      {
+        icon: Linkedin,
+        label: 'LinkedIn',
+        value: 'IG GROUP',
+        href: company.linkedin,
+        external: true,
+      },
       company.workingHours[locale.value] && {
         icon: Clock,
         label: t('common.workingHours'),
         value: company.workingHours[locale.value],
       },
     ].filter(Boolean) as {
-      icon: typeof Phone
+      icon: Component
       label: string
       value: string
       href?: string
       latin?: boolean
+      external?: boolean
     }[],
 )
 </script>
@@ -56,7 +65,14 @@ const rows = computed(
         <div>
           <dt class="text-brand-200 text-[12px]">{{ r.label }}</dt>
           <dd class="text-[16px] font-medium" :class="r.latin && 'latin text-[17px]'">
-            <a v-if="r.href" :href="r.href" class="hover:underline">{{ r.value }}</a>
+            <a
+              v-if="r.href"
+              :href="r.href"
+              :target="r.external ? '_blank' : undefined"
+              :rel="r.external ? 'noopener noreferrer' : undefined"
+              class="hover:underline"
+              >{{ r.value }}</a
+            >
             <template v-else>{{ r.value }}</template>
           </dd>
         </div>

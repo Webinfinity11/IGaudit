@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ArrowRight, Phone, ShieldCheck } from 'lucide-vue-next'
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { company } from '@/content/company'
 import { isServiceSlug, services } from '@/content/services'
@@ -17,13 +17,15 @@ import NotFoundPage from './NotFoundPage.vue'
 
 const route = useRoute()
 const { t, te, tm, rt } = useI18n()
-const { to } = useLocale()
+const { to, toSub } = useLocale()
 
 const slug = computed(() => (isServiceSlug(route.params.slug) ? route.params.slug : null))
 const service = computed(() => services.find((s) => s.slug === slug.value))
 const others = computed(() => services.filter((s) => s.slug !== slug.value))
 const key = (field: string) => `services.${slug.value}.${field}`
-const items = computed(() => (slug.value ? (tm(key('items')) as string[]).map((i) => rt(i)) : []))
+const items = computed(() =>
+  slug.value && te(key('items')) ? (tm(key('items')) as string[]).map((i) => rt(i)) : [],
+)
 
 if (slug.value) {
   useSeo({
@@ -54,7 +56,37 @@ if (slug.value) {
             {{ t(key('intro')) }}
           </p>
 
-          <div class="bg-ink-50 border-ink-200 mt-10 rounded-[28px] border p-6 md:p-8">
+          <!-- ქვე-სერვისები: არჩევით, თითოეულს თავისი გვერდი აქვს -->
+          <div v-if="service.subs.length" class="mt-10">
+            <h2 class="text-ink-900 text-[20px] font-bold">{{ t('servicesPage.chooseTitle') }}</h2>
+            <ul v-reveal-group class="mt-5 grid gap-3 sm:grid-cols-2">
+              <li v-for="s in service.subs" :key="s">
+                <RouterLink
+                  :to="toSub(service.slug, s)"
+                  class="group bg-ink-50 border-ink-200 hover:border-brand-200 hover:shadow-card flex h-full flex-col rounded-[24px] border p-5 transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none md:p-6"
+                >
+                  <span class="text-ink-900 text-[17px] leading-snug font-bold">
+                    {{ t(`services.${service.slug}.subs.${s}.title`) }}
+                  </span>
+                  <span class="text-ink-500 mt-2 text-[14px] leading-relaxed">
+                    {{ t(`services.${service.slug}.subs.${s}.short`) }}
+                  </span>
+                  <span
+                    class="text-brand-800 mt-auto inline-flex items-center gap-2 pt-4 text-[14px] font-medium"
+                  >
+                    {{ t('common.readMore') }}
+                    <ArrowRight
+                      :size="16"
+                      class="transition-transform group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </RouterLink>
+              </li>
+            </ul>
+          </div>
+
+          <div v-else class="bg-ink-50 border-ink-200 mt-10 rounded-[28px] border p-6 md:p-8">
             <h2 class="text-ink-900 text-[20px] font-bold">{{ t('servicesPage.includes') }}</h2>
             <ol class="divide-ink-200 mt-6 divide-y">
               <li v-for="(it, i) in items" :key="i" class="flex gap-4 py-4 first:pt-0 last:pb-0">

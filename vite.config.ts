@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig, loadEnv } from 'vite'
-import { serviceSlugs } from './src/content/services'
+import { serviceSlugs, subServicePaths } from './src/content/services'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -25,6 +25,8 @@ export default defineConfig(({ mode }) => {
           .filter((p) => !p.includes(':') && !p.includes('*'))
           .concat(serviceSlugs.map((s) => `/services/${s}`))
           .concat(enableEn ? serviceSlugs.map((s) => `/en/services/${s}`) : [])
+          .concat(subServicePaths.map((p) => `/services/${p}`))
+          .concat(enableEn ? subServicePaths.map((p) => `/en/services/${p}`) : [])
         return [...new Set(pages), '/404']
       },
       onFinished() {
@@ -33,6 +35,7 @@ export default defineConfig(({ mode }) => {
         // sitemap.xml - every prerendered page except 404
         const base = ['/', '/about', '/clients', '/services', '/contact', '/privacy'].concat(
           serviceSlugs.map((s) => `/services/${s}`),
+          subServicePaths.map((p) => `/services/${p}`),
         )
         const urls = base.flatMap((p) => {
           const ka = `${siteUrl}${p}`

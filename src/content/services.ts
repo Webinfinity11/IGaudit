@@ -1,9 +1,10 @@
-// მომსახურებების სია. ტექსტები: locales/*.json → services.<slug>
+// სერვისების სია. ტექსტები: locales/*.json → services.<slug> (ქვე-სერვისები: services.<slug>.subs.<sub>)
+// ქვე-სერვისის დეტალური ტექსტი: content/serviceDetails.ts
 // ეს ფაილი იმპორტდება vite.config.ts-შიც (პრერენდერი, sitemap) - Vue-ს იმპორტი აქ არ შეიძლება.
 export const serviceSlugs = [
   'audit',
-  'accounting',
-  'tax-risk',
+  'tax',
+  'outsourcing',
   'consulting',
   'property-valuation',
   'business-valuation',
@@ -16,16 +17,50 @@ export interface Service {
   icon: string // Lucide ხატულის სახელი (იხ. components/ui/AppIcon.vue)
   order: number
   photo: 'stamp' | 'desk' | 'hero' | 'binders' // content/photos.ts
+  subs: readonly string[] // ქვე-სერვისები; ცარიელი → გვერდზე „მომსახურება მოიცავს“ სია
 }
 
 export const services: Service[] = [
-  { slug: 'audit', icon: 'FileSearch', order: 1, photo: 'stamp' },
-  { slug: 'accounting', icon: 'Calculator', order: 2, photo: 'desk' },
-  { slug: 'tax-risk', icon: 'ShieldAlert', order: 3, photo: 'hero' },
-  { slug: 'consulting', icon: 'MessagesSquare', order: 4, photo: 'binders' },
-  { slug: 'property-valuation', icon: 'Building2', order: 5, photo: 'hero' },
-  { slug: 'business-valuation', icon: 'TrendingUp', order: 6, photo: 'desk' },
+  {
+    slug: 'audit',
+    icon: 'FileSearch',
+    order: 1,
+    photo: 'stamp',
+    subs: ['audit', 'reporting-compilation'],
+  },
+  {
+    slug: 'tax',
+    icon: 'ShieldAlert',
+    order: 2,
+    photo: 'hero',
+    subs: [
+      'tax-consulting',
+      'transaction-advisory',
+      'tax-compliance',
+      'tax-disputes',
+      'tax-returns',
+    ],
+  },
+  {
+    slug: 'outsourcing',
+    icon: 'Calculator',
+    order: 3,
+    photo: 'desk',
+    subs: ['bookkeeping', 'payroll', 'finance-manager', 'chief-accountant'],
+  },
+  {
+    slug: 'consulting',
+    icon: 'MessagesSquare',
+    order: 4,
+    photo: 'binders',
+    subs: ['business-consulting', 'litigation-support', 'risk-consulting'],
+  },
+  { slug: 'property-valuation', icon: 'Building2', order: 5, photo: 'hero', subs: [] },
+  { slug: 'business-valuation', icon: 'TrendingUp', order: 6, photo: 'desk', subs: [] },
 ]
+
+/** ყველა ქვე-სერვისის გზა: `audit/reporting-compilation` */
+export const subServicePaths = services.flatMap((s) => s.subs.map((sub) => `${s.slug}/${sub}`))
 
 export function isServiceSlug(value: unknown): value is ServiceSlug {
   return typeof value === 'string' && (serviceSlugs as readonly string[]).includes(value)

@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { company } from '@/content/company'
 import { vReveal, vRevealGroup } from '@/composables/useMotion'
 import AppIcon from '@/components/ui/AppIcon.vue'
 import ClipRevealPhoto from '@/components/motion/ClipRevealPhoto.vue'
 
 const { t } = useI18n()
+// წლები ავტომატურად იზრდება
+const years = new Date().getFullYear() - company.foundedYear
 const items = [
   { key: 'trust', icon: 'Lock' },
   { key: 'professionalism', icon: 'Award' },
@@ -46,7 +49,7 @@ const items = [
           class="mt-2 text-[14px] leading-relaxed"
           :class="i === 0 ? 'text-brand-100' : 'text-ink-500'"
         >
-          {{ t(`home.why.items.${w.key}.text`) }}
+          {{ t(`home.why.items.${w.key}.text`, { years }) }}
         </p>
       </li>
     </ul>

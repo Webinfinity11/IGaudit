@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/services/tax-risk",
+      "destination": "/services/tax",
+      "permanent": true
+    },
+    {
+      "source": "/services/accounting",
+      "destination": "/services/outsourcing",
+      "permanent": true
+    },
+    {
+      "source": "/en/services/tax-risk",
+      "destination": "/en/services/tax",
+      "permanent": true
+    },
+    {
+      "source": "/en/services/accounting",
+      "destination": "/en/services/outsourcing",
+      "permanent": true
+    }
+  ]
+}

@@ -10,7 +10,15 @@ declare module 'vue-router' {
 }
 
 export type PageName =
-  'home' | 'about' | 'clients' | 'services' | 'service' | 'contact' | 'privacy' | 'notFound'
+  | 'home'
+  | 'about'
+  | 'clients'
+  | 'services'
+  | 'service'
+  | 'subservice'
+  | 'contact'
+  | 'privacy'
+  | 'notFound'
 
 const pages: { page: PageName; path: string; component: RouteRecordRaw['component'] }[] = [
   { page: 'home', path: '', component: () => import('@/pages/HomePage.vue') },
@@ -18,6 +26,11 @@ const pages: { page: PageName; path: string; component: RouteRecordRaw['componen
   { page: 'clients', path: 'clients', component: () => import('@/pages/ClientsPage.vue') },
   { page: 'services', path: 'services', component: () => import('@/pages/ServicesPage.vue') },
   { page: 'service', path: 'services/:slug', component: () => import('@/pages/ServicePage.vue') },
+  {
+    page: 'subservice',
+    path: 'services/:slug/:sub',
+    component: () => import('@/pages/SubServicePage.vue'),
+  },
   { page: 'contact', path: 'contact', component: () => import('@/pages/ContactPage.vue') },
   { page: 'privacy', path: 'privacy', component: () => import('@/pages/PrivacyPage.vue') },
   { page: 'notFound', path: '404', component: () => import('@/pages/NotFoundPage.vue') },

@@ -6,6 +6,7 @@ import { company } from '@/content/company'
 import { services } from '@/content/services'
 import { useLocale } from '@/composables/useLocale'
 import AppLogo from '@/components/ui/AppLogo.vue'
+import LinkedinIcon from '@/components/ui/LinkedinIcon.vue'
 
 const { t } = useI18n()
 const { to, locale } = useLocale()
@@ -77,6 +78,18 @@ const link = 'hover:text-brand-800 transition-colors'
             <a :href="`mailto:${company.email}`" class="latin flex gap-3" :class="link">
               <Mail :size="18" class="text-brand-700 shrink-0" aria-hidden="true" />
               {{ company.email }}
+            </a>
+          </li>
+          <li>
+            <a
+              :href="company.linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="latin flex gap-3"
+              :class="link"
+            >
+              <LinkedinIcon :size="18" class="text-brand-700 shrink-0" />
+              LinkedIn
             </a>
           </li>
         </ul>

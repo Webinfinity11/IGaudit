@@ -25,6 +25,8 @@ export const clients: ClientLogo[] = [
   { name: 'AZ Logistika', logo: '/images/clients/az-logistika.webp', consent: true },
   { name: 'SPNEWS', logo: '/images/clients/spnews.webp', consent: true },
   { name: 'თრიალეთი', logo: '/images/clients/trialeti.webp', consent: true },
+  { name: 'Nabuna', logo: '/images/clients/nabuna.webp', consent: true },
+  { name: 'ჯიენჯი ფარმა', logo: '/images/clients/gng-pharma.webp', consent: true },
   { name: 'პირველი ნაბიჯი', nameEn: 'Pirveli Nabiji', consent: true },
   { name: 'ანანო 2014', nameEn: 'Anano 2014', consent: true },
   { name: 'გრეიპლენდი', nameEn: 'Grapeland', consent: true },

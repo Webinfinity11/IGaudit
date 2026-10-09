@@ -184,6 +184,29 @@ const jobs = [
       return whiteToAlpha(clean)
     },
   },
+  // Nabuna: თეთრი წარწერა მწვანე ფონზე → მწვანე წარწერა გამჭვირვალეზე (ფონი ≈ 83, ტექსტი ≈ 243)
+  {
+    slug: 'nabuna',
+    file: '1.png',
+    make: (p) =>
+      mapPixels(p, (r, g, b) => {
+        const lum = 0.299 * r + 0.587 * g + 0.114 * b
+        const a = Math.max(0, Math.min(1, (lum - 110) / 100))
+        return [54, 96, 90, Math.round(a * 255)]
+      }),
+  },
+  // ჯიენჯი ფარმა: სარეკლამო ბანერია - ვიღებთ მხოლოდ წითელ სათაურს, თეთრი წარწერა → წითელი
+  {
+    slug: 'gng-pharma',
+    file: 'image293.jpg',
+    make: async (p) => {
+      const band = await sharp(p).extract({ left: 0, top: 0, width: 768, height: 50 }).toBuffer()
+      return mapPixels(band, (r, g, b) => {
+        const a = Math.max(0, Math.min(1, (Math.min(g, b) - 70) / 120))
+        return [228, 30, 38, Math.round(a * 255)]
+      })
+    },
+  },
 ]
 
 for (const { slug, file, make } of jobs) {

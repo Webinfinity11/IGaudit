@@ -34,11 +34,11 @@ const years = new Date().getFullYear() - company.foundedYear
   <!-- ლოგოები: ერთნაირი ჩარჩოები, ფაილებიც ერთ ზომაზეა (480×240) -->
   <section class="container-site pt-4 pb-16 md:pb-24" aria-labelledby="clients-grid-title">
     <h2 id="clients-grid-title" class="sr-only">{{ t('clients.gridTitle') }}</h2>
-    <ul v-reveal-group class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
+    <ul v-reveal-group class="flex flex-wrap justify-center gap-3 md:gap-4">
       <li
         v-for="c in logos"
         :key="c.logo"
-        class="group bg-ink-50 border-ink-200 hover:border-brand-200 hover:shadow-card relative flex aspect-[2/1] items-center justify-center overflow-hidden rounded-[28px] border p-3 transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none md:p-4"
+        class="group bg-ink-50 border-ink-200 hover:border-brand-200 hover:shadow-card relative flex aspect-[2/1] w-[calc(50%-6px)] md:w-[calc(33.333%-10.667px)] lg:w-[calc(25%-12px)] items-center justify-center overflow-hidden rounded-[28px] border p-3 transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none md:p-4"
       >
         <span
           aria-hidden="true"

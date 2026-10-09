@@ -46,7 +46,7 @@ const facts = [
         :class="animate && 'is-animated'"
       >
         <ul
-          class="marquee-track flex w-max items-center gap-14"
+          class="marquee-track flex w-max items-center gap-10"
           :class="!animate && 'mx-auto flex-wrap justify-center'"
         >
           <template v-for="copy in animate ? 2 : 1" :key="copy">
@@ -68,8 +68,8 @@ const facts = [
                   :alt="c.name || t('clients.logoAlt')"
                   loading="lazy"
                   decoding="async"
-                  height="56"
-                  class="h-14 w-40 object-contain opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+                  height="80"
+                  class="h-20 w-40 object-contain opacity-80 grayscale md:h-24 md:w-48 transition duration-300 hover:opacity-100 hover:grayscale-0"
                 />
               </component>
             </li>
@@ -93,7 +93,7 @@ const facts = [
 }
 @keyframes marquee {
   to {
-    transform: translateX(calc(-50% - 1.75rem));
+    transform: translateX(calc(-50% - 1.25rem));
   }
 }
 @media (prefers-reduced-motion: reduce) {

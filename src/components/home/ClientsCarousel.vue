@@ -65,7 +65,7 @@ const facts = [
               >
                 <img
                   :src="c.logo"
-                  :alt="c.name"
+                  :alt="c.name || t('clients.logoAlt')"
                   loading="lazy"
                   decoding="async"
                   height="56"

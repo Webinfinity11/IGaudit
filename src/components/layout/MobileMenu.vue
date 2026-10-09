@@ -72,6 +72,14 @@ const linkClass = 'block border-b border-ink-200 py-4 text-lg font-medium text-i
         >
           {{ t('nav.about') }}
         </RouterLink>
+        <RouterLink
+          :to="to('clients')"
+          :class="linkClass"
+          active-class="!text-brand-800"
+          @click="emit('close')"
+        >
+          {{ t('nav.clients') }}
+        </RouterLink>
 
         <div class="border-ink-200 border-b">
           <button

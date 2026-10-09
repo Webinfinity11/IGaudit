@@ -9,6 +9,10 @@
       "title": "About Us",
       "description": "IG GROUP - a registered audit firm since 2011. Certified auditors, chief accountants and a lawyer; professional liability insured."
     },
+    "clients": {
+      "title": "Our Clients",
+      "description": "Companies that trust IG GROUP with their audit, accounting and tax matters."
+    },
     "services": {
       "title": "Services",
       "description": "Audit, accounting, tax, consulting and valuation services in one place - IG GROUP."
@@ -44,6 +48,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
+    "clients": "Clients",
     "services": "Services",
     "allServices": "All services",
     "contact": "Contact",
@@ -201,6 +206,17 @@
       "years": "years in business",
       "team": "professionals on the team"
     }
+  },
+  "clients": {
+    "titleLead": "Companies that",
+    "titleAccent": "trust us",
+    "lead": "Since 2011 we have helped companies in aviation, wine, trade, manufacturing and services manage their financial and tax matters.",
+    "gridTitle": "Client logos",
+    "logoAlt": "Client logo",
+    "years": "years on the market",
+    "companies": "companies trust us",
+    "confidential": "Confidentiality",
+    "confidentialText": "We publish a client’s name only with their consent."
   },
   "servicesPage": {
     "eyebrow": "Services",

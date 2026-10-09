@@ -76,6 +76,11 @@ const pillActive = 'bg-ink-50 !text-brand-800 font-medium shadow-card'
               {{ t('nav.about') }}
             </RouterLink>
           </li>
+          <li>
+            <RouterLink :to="to('clients')" :class="[pill, pillIdle]" :active-class="pillActive">
+              {{ t('nav.clients') }}
+            </RouterLink>
+          </li>
           <li><NavDropdown :pill-class="[pill, pillIdle]" :active-class="pillActive" /></li>
           <li>
             <RouterLink :to="to('contact')" :class="[pill, pillIdle]" :active-class="pillActive">

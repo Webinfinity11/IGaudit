@@ -10,11 +10,12 @@ declare module 'vue-router' {
 }
 
 export type PageName =
-  'home' | 'about' | 'services' | 'service' | 'contact' | 'privacy' | 'notFound'
+  'home' | 'about' | 'clients' | 'services' | 'service' | 'contact' | 'privacy' | 'notFound'
 
 const pages: { page: PageName; path: string; component: RouteRecordRaw['component'] }[] = [
   { page: 'home', path: '', component: () => import('@/pages/HomePage.vue') },
   { page: 'about', path: 'about', component: () => import('@/pages/AboutPage.vue') },
+  { page: 'clients', path: 'clients', component: () => import('@/pages/ClientsPage.vue') },
   { page: 'services', path: 'services', component: () => import('@/pages/ServicesPage.vue') },
   { page: 'service', path: 'services/:slug', component: () => import('@/pages/ServicePage.vue') },
   { page: 'contact', path: 'contact', component: () => import('@/pages/ContactPage.vue') },

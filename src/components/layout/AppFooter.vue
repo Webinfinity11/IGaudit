@@ -38,6 +38,9 @@ const link = 'hover:text-brand-800 transition-colors'
             <RouterLink :to="to('about')" :class="link">{{ t('nav.about') }}</RouterLink>
           </li>
           <li>
+            <RouterLink :to="to('clients')" :class="link">{{ t('nav.clients') }}</RouterLink>
+          </li>
+          <li>
             <RouterLink :to="to('services')" :class="link">{{ t('nav.services') }}</RouterLink>
           </li>
           <li>

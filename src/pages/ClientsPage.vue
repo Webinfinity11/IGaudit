@@ -11,10 +11,12 @@ import CountUp from '@/components/motion/CountUp.vue'
 import CtaSection from '@/components/home/CtaSection.vue'
 
 const { t } = useI18n()
-const { to } = useLocale()
+const { to, locale } = useLocale()
 useSeo({ title: () => t('meta.clients.title'), description: () => t('meta.clients.description') })
 
 const published = clients.filter((c) => c.consent)
+const logos = published.filter((c) => c.logo)
+const named = published.filter((c) => !c.logo)
 const years = new Date().getFullYear() - company.foundedYear
 </script>
 
@@ -34,7 +36,7 @@ const years = new Date().getFullYear() - company.foundedYear
     <h2 id="clients-grid-title" class="sr-only">{{ t('clients.gridTitle') }}</h2>
     <ul v-reveal-group class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
       <li
-        v-for="c in published"
+        v-for="c in logos"
         :key="c.logo"
         class="group bg-ink-50 border-ink-200 hover:border-brand-200 hover:shadow-card relative flex aspect-[2/1] items-center justify-center overflow-hidden rounded-[28px] border p-3 transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none md:p-4"
       >
@@ -54,6 +56,35 @@ const years = new Date().getFullYear() - company.foundedYear
         />
       </li>
     </ul>
+
+    <!-- ლოგოს გარეშე კომპანიები - სახელით, იმავე ჩარჩოებში -->
+    <template v-if="named.length">
+      <h3 v-reveal class="text-ink-500 mt-10 text-[14px] font-medium md:mt-14">
+        {{ t('clients.alsoTrust') }}
+      </h3>
+      <ul v-reveal-group class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+        <li
+          v-for="c in named"
+          :key="c.name"
+          class="group bg-ink-50 border-ink-200 hover:border-brand-200 hover:shadow-card relative flex min-h-[112px] flex-col items-center justify-center overflow-hidden rounded-[28px] border px-4 py-6 text-center transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none md:min-h-[136px]"
+        >
+          <span
+            aria-hidden="true"
+            class="from-brand-50 absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          />
+          <span
+            class="text-brand-800 relative text-[11px] font-semibold tracking-[0.2em] uppercase"
+          >
+            {{ t('clients.llc') }}
+          </span>
+          <span
+            class="h-display text-ink-900 relative mt-2 text-[17px] leading-tight md:text-[22px]"
+          >
+            {{ locale === 'en' ? (c.nameEn ?? c.name) : c.name }}
+          </span>
+        </li>
+      </ul>
+    </template>
 
     <!-- ფაქტები -->
     <div v-reveal-group class="mt-10 grid gap-3 md:mt-14 md:grid-cols-3 md:gap-4">

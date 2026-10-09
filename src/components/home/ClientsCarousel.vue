@@ -7,7 +7,7 @@ import { clients } from '@/content/clients'
 import { vReveal } from '@/composables/useMotion'
 
 const { t } = useI18n()
-const published = computed(() => clients.filter((c) => c.consent))
+const published = computed(() => clients.filter((c) => c.consent && c.logo))
 // ზოლი მოძრაობს მხოლოდ თუ ლოგოები საკმარისია ეკრანის შესავსებად
 const animate = computed(() => published.value.length >= 5)
 const facts = [

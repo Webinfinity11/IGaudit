@@ -30,10 +30,10 @@ const years = new Date().getFullYear() - company.foundedYear
   </PageHero>
 
   <!-- ლოგოები და სახელით ჩამატებული კომპანიები - ერთ ბადეში, ერთნაირ ჩარჩოებში.
-       ლოგოს ფაილები ერთ ზომაზეა (480×240); ბოლო არასრული რიგი ცენტრში დგება -->
+       ლოგოს ფაილები ერთ ზომაზეა (480×240); ბოლო არასრული რიგი მარცხნივ იწყება -->
   <section class="container-site pt-4 pb-16 md:pb-24" aria-labelledby="clients-grid-title">
     <h2 id="clients-grid-title" class="sr-only">{{ t('clients.gridTitle') }}</h2>
-    <ul v-reveal-group class="flex flex-wrap justify-center gap-3 md:gap-4">
+    <ul v-reveal-group class="flex flex-wrap gap-3 md:gap-4">
       <li
         v-for="c in published"
         :key="c.logo ?? c.name"

@@ -64,7 +64,29 @@ async function lightTextToColor(input, [r, g, b]) {
 const f = (name) => join(src, name)
 
 await place(await whiteToAlpha(f('logo-new.png')), 'georgian-airways')
-await place(await whiteToAlpha(f('Shumi_Logo_Dark_h-10mm.png')), 'shumi')
+// Shumi: ვერტიკალური ლოგო განიერ ჩარჩოში პატარად ჩანს → ჰორიზონტალური: გრიფონი წარწერის მარცხნივ
+{
+  const shumi = await whiteToAlpha(f('Shumi_Logo_Dark_h-10mm.png'))
+  const part = async (top, height) => {
+    const cut = await sharp(shumi).extract({ left: 0, top, width: 800, height }).png().toBuffer()
+    return sharp(cut).trim({ threshold: 30 }).png().toBuffer({ resolveWithObject: true })
+  }
+  const griffin = await part(100, 160)
+  const text = await part(290, 200)
+  const gH = Math.round(text.info.height * 1.05)
+  const g = await sharp(griffin.data).resize({ height: gH }).png().toBuffer({ resolveWithObject: true })
+  const gap = Math.round(text.info.height * 0.25)
+  const width = g.info.width + gap + text.info.width
+  const height = Math.max(gH, text.info.height)
+  const row = await sharp({ create: { width, height, channels: 4, background: '#0000' } })
+    .composite([
+      { input: g.data, left: 0, top: Math.round((height - gH) / 2) },
+      { input: text.data, left: g.info.width + gap, top: Math.round((height - text.info.height) / 2) },
+    ])
+    .png()
+    .toBuffer()
+  await place(row, 'shumi')
+}
 await place(await whiteToAlpha(f('COTT Electronics Georgia Logo.png')), 'cott-georgia')
 await place(await whiteToAlpha(f('PHOTO-2026-10-08-17-28-03.jpg')), 'gogutsa')
 // Yamato: წითელი რგოლის შიგნით მხოლოდ ნიშანი + წარწერა

@@ -72,14 +72,7 @@ const years = new Date().getFullYear() - company.foundedYear
             aria-hidden="true"
             class="from-brand-50 absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           />
-          <span
-            class="text-brand-800 relative text-[11px] font-semibold tracking-[0.2em] uppercase"
-          >
-            {{ t('clients.llc') }}
-          </span>
-          <span
-            class="h-display text-ink-900 relative mt-2 text-[17px] leading-tight md:text-[22px]"
-          >
+          <span class="h-display text-ink-900 relative text-[17px] leading-tight md:text-[22px]">
             {{ locale === 'en' ? (c.nameEn ?? c.name) : c.name }}
           </span>
         </li>

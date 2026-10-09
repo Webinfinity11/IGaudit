@@ -15,8 +15,6 @@ const { to, locale } = useLocale()
 useSeo({ title: () => t('meta.clients.title'), description: () => t('meta.clients.description') })
 
 const published = clients.filter((c) => c.consent)
-const logos = published.filter((c) => c.logo)
-const named = published.filter((c) => !c.logo)
 const years = new Date().getFullYear() - company.foundedYear
 </script>
 
@@ -31,20 +29,22 @@ const years = new Date().getFullYear() - company.foundedYear
     </div>
   </PageHero>
 
-  <!-- ლოგოები: ერთნაირი ჩარჩოები, ფაილებიც ერთ ზომაზეა (480×240) -->
+  <!-- ლოგოები და სახელით ჩამატებული კომპანიები - ერთ ბადეში, ერთნაირ ჩარჩოებში.
+       ლოგოს ფაილები ერთ ზომაზეა (480×240); ბოლო არასრული რიგი ცენტრში დგება -->
   <section class="container-site pt-4 pb-16 md:pb-24" aria-labelledby="clients-grid-title">
     <h2 id="clients-grid-title" class="sr-only">{{ t('clients.gridTitle') }}</h2>
     <ul v-reveal-group class="flex flex-wrap justify-center gap-3 md:gap-4">
       <li
-        v-for="c in logos"
-        :key="c.logo"
-        class="group bg-ink-50 border-ink-200 hover:border-brand-200 hover:shadow-card relative flex aspect-[2/1] w-[calc(50%-6px)] md:w-[calc(33.333%-10.667px)] lg:w-[calc(25%-12px)] items-center justify-center overflow-hidden rounded-[28px] border p-3 transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none md:p-4"
+        v-for="c in published"
+        :key="c.logo ?? c.name"
+        class="group bg-ink-50 border-ink-200 hover:border-brand-200 hover:shadow-card relative flex aspect-[2/1] w-[calc(50%-6px)] items-center justify-center overflow-hidden rounded-[28px] border p-3 text-center transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none md:w-[calc(33.333%-10.667px)] md:p-4 lg:w-[calc(25%-12px)]"
       >
         <span
           aria-hidden="true"
           class="from-brand-50 absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         />
         <img
+          v-if="c.logo"
           :src="c.logo"
           :alt="c.name || t('clients.logoAlt')"
           :title="c.name || undefined"
@@ -54,30 +54,14 @@ const years = new Date().getFullYear() - company.foundedYear
           decoding="async"
           class="relative size-full object-contain transition duration-300 group-hover:scale-[1.04] motion-reduce:transform-none"
         />
+        <span
+          v-else
+          class="h-display text-ink-900 relative px-2 text-[15px] leading-tight transition duration-300 group-hover:scale-[1.04] motion-reduce:transform-none md:text-[20px]"
+        >
+          {{ locale === 'en' ? (c.nameEn ?? c.name) : c.name }}
+        </span>
       </li>
     </ul>
-
-    <!-- ლოგოს გარეშე კომპანიები - სახელით, იმავე ჩარჩოებში -->
-    <template v-if="named.length">
-      <h3 v-reveal class="text-ink-500 mt-10 text-[14px] font-medium md:mt-14">
-        {{ t('clients.alsoTrust') }}
-      </h3>
-      <ul v-reveal-group class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
-        <li
-          v-for="c in named"
-          :key="c.name"
-          class="group bg-ink-50 border-ink-200 hover:border-brand-200 hover:shadow-card relative flex min-h-[112px] flex-col items-center justify-center overflow-hidden rounded-[28px] border px-4 py-6 text-center transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none md:min-h-[136px]"
-        >
-          <span
-            aria-hidden="true"
-            class="from-brand-50 absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          />
-          <span class="h-display text-ink-900 relative text-[17px] leading-tight md:text-[22px]">
-            {{ locale === 'en' ? (c.nameEn ?? c.name) : c.name }}
-          </span>
-        </li>
-      </ul>
-    </template>
 
     <!-- ფაქტები -->
     <div v-reveal-group class="mt-10 grid gap-3 md:mt-14 md:grid-cols-3 md:gap-4">

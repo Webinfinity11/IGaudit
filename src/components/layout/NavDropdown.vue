@@ -3,8 +3,8 @@ import { ArrowRight, ChevronDown } from 'lucide-vue-next'
 import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { services } from '@/content/services'
 import { useLocale } from '@/composables/useLocale'
+import { useServiceMenu } from '@/composables/useServiceMenu'
 import AppIcon from '@/components/ui/AppIcon.vue'
 
 defineProps<{ pillClass: unknown; activeClass: string }>()
@@ -12,6 +12,7 @@ defineProps<{ pillClass: unknown; activeClass: string }>()
 const { t } = useI18n()
 const { to } = useLocale()
 const route = useRoute()
+const menu = useServiceMenu()
 
 const open = ref(false)
 const root = ref<HTMLElement>()
@@ -123,9 +124,9 @@ onBeforeUnmount(() => {
       >
         <div class="rounded-card border-ink-200 bg-ink-50 shadow-pop border p-3">
           <ul class="grid grid-cols-2 gap-1">
-            <li v-for="s in services" :key="s.slug">
+            <li v-for="s in menu" :key="s.key">
               <RouterLink
-                :to="to('service', s.slug)"
+                :to="s.to"
                 class="rounded-field hover:bg-brand-50 focus-visible:bg-brand-50 flex gap-3 p-3 transition-colors"
                 active-class="bg-brand-50"
               >
@@ -135,7 +136,7 @@ onBeforeUnmount(() => {
                   <AppIcon :name="s.icon" :size="18" />
                 </span>
                 <span class="text-ink-900 pt-2 text-[14px] leading-snug font-medium">
-                  {{ t(`services.${s.slug}.title`) }}
+                  {{ s.label }}
                 </span>
               </RouterLink>
             </li>

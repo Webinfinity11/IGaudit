@@ -3,14 +3,15 @@ import { Mail, MapPin, Phone } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { company } from '@/content/company'
-import { services } from '@/content/services'
 import { useLocale } from '@/composables/useLocale'
+import { useServiceMenu } from '@/composables/useServiceMenu'
 import AppLogo from '@/components/ui/AppLogo.vue'
 import LinkedinIcon from '@/components/ui/LinkedinIcon.vue'
 
 const { t } = useI18n()
 const { to, locale } = useLocale()
 const year = new Date().getFullYear()
+const menu = useServiceMenu()
 const link = 'hover:text-brand-800 transition-colors'
 </script>
 
@@ -53,10 +54,8 @@ const link = 'hover:text-brand-800 transition-colors'
       <nav :aria-label="t('footer.servicesTitle')">
         <h2 class="text-ink-900 text-[13px] font-semibold">{{ t('footer.servicesTitle') }}</h2>
         <ul class="text-ink-600 mt-4 space-y-2.5 text-[14px]">
-          <li v-for="s in services" :key="s.slug">
-            <RouterLink :to="to('service', s.slug)" :class="link">{{
-              t(`services.${s.slug}.title`)
-            }}</RouterLink>
+          <li v-for="s in menu" :key="s.key">
+            <RouterLink :to="s.to" :class="link">{{ s.label }}</RouterLink>
           </li>
         </ul>
       </nav>

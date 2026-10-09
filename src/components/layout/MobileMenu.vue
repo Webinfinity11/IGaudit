@@ -4,8 +4,8 @@ import { nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { company } from '@/content/company'
-import { services } from '@/content/services'
 import { useLocale } from '@/composables/useLocale'
+import { useServiceMenu } from '@/composables/useServiceMenu'
 import LangSwitcher from './LangSwitcher.vue'
 
 const props = defineProps<{ open: boolean }>()
@@ -14,6 +14,7 @@ const emit = defineEmits<{ close: [] }>()
 const { t } = useI18n()
 const { to } = useLocale()
 const servicesOpen = ref(false)
+const menu = useServiceMenu()
 const panel = ref<HTMLElement>()
 
 function onKeydown(e: KeyboardEvent) {
@@ -98,14 +99,14 @@ const linkClass = 'block border-b border-ink-200 py-4 text-lg font-medium text-i
             />
           </button>
           <ul v-show="servicesOpen" id="mobile-services" class="pb-3">
-            <li v-for="s in services" :key="s.slug">
+            <li v-for="s in menu" :key="s.key">
               <RouterLink
-                :to="to('service', s.slug)"
+                :to="s.to"
                 class="text-ink-600 block py-2.5 pl-4"
                 active-class="!text-brand-800"
                 @click="emit('close')"
               >
-                {{ t(`services.${s.slug}.title`) }}
+                {{ s.label }}
               </RouterLink>
             </li>
             <li>

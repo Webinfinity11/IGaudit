@@ -3,7 +3,8 @@ import { Scale, ShieldCheck } from 'lucide-vue-next'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { company } from '@/content/company'
-import { team } from '@/content/team'
+import { clients } from '@/content/clients'
+import { managingPartner as partner } from '@/content/team'
 import { useSeo } from '@/composables/useSeo'
 import { useLocale } from '@/composables/useLocale'
 import { vReveal, vRevealGroup } from '@/composables/useMotion'
@@ -28,27 +29,14 @@ const values = [
   { key: 'adaptability', icon: 'RefreshCw' },
   { key: 'experience', icon: 'Briefcase' },
 ]
-// როლების შეჯამება team.ts-დან
-const roles = computed(() => [
-  { icon: 'ShieldCheck', n: team.filter((m) => m.saras).length, t: t('about.team.roles.auditors') },
-  {
-    icon: 'Calculator',
-    n: team.filter((m) => m.icon === 'Calculator').length,
-    t: t('about.team.roles.accountants'),
-  },
-  {
-    icon: 'Briefcase',
-    n: team.filter((m) => m.icon === 'Briefcase').length,
-    t: t('about.team.roles.pm'),
-  },
-  {
-    icon: 'Scale',
-    n: team.filter((m) => m.icon === 'Scale').length,
-    t: t('about.team.roles.lawyer'),
-  },
-])
-const partners = team.filter((m) => m.saras)
-const others = team.filter((m) => !m.saras)
+// გუნდის შემადგენლობა - რაოდენობების გარეშე
+const roles = [
+  { icon: 'ShieldCheck', key: 'auditors' },
+  { icon: 'Calculator', key: 'accountants' },
+  { icon: 'Briefcase', key: 'pm' },
+  { icon: 'Scale', key: 'lawyer' },
+]
+const clientCount = clients.filter((c) => c.consent).length
 </script>
 
 <template>
@@ -86,10 +74,11 @@ const others = team.filter((m) => !m.saras)
         </div>
         <div class="bg-accent-50 flex flex-col justify-end rounded-[28px] p-6">
           <CountUp
-            :value="team.length"
+            :value="clientCount"
+            suffix="+"
             class="text-accent-900 text-[40px] leading-none font-medium"
           />
-          <span class="text-ink-600 mt-2 text-[13px]">{{ t('about.stats.team') }}</span>
+          <span class="text-ink-600 mt-2 text-[13px]">{{ t('clients.companies') }}</span>
         </div>
       </div>
     </div>
@@ -145,92 +134,51 @@ const others = team.filter((m) => !m.saras)
       <p class="text-ink-600 text-[16px] leading-relaxed">{{ t('about.team.intro') }}</p>
     </div>
 
-    <div class="mt-12 grid gap-6 lg:grid-cols-[320px_1fr] lg:gap-10">
-      <aside>
-        <div class="bg-ink-100 rounded-[28px] p-7 lg:sticky lg:top-24">
-          <CountUp
-            :value="team.length"
-            class="text-brand-800 block text-[72px] leading-none font-medium"
-          />
-          <div class="text-ink-600 mt-2 text-[15px]">{{ t('about.team.total') }}</div>
-          <ul class="mt-8 space-y-4">
-            <li v-for="r in roles" :key="r.t" class="flex items-center gap-4">
-              <span
-                class="bg-ink-50 text-brand-800 flex size-10 shrink-0 items-center justify-center rounded-full"
-              >
-                <AppIcon :name="r.icon" :size="18" />
-              </span>
-              <span class="text-ink-700 flex-1 text-[14px] leading-snug">{{ r.t }}</span>
-              <span class="latin text-ink-900 text-[20px] font-medium">{{ r.n }}</span>
-            </li>
-          </ul>
+    <div v-reveal-group class="mt-12 grid gap-4 lg:grid-cols-[1.15fr_1fr]">
+      <!-- მმართველი პარტნიორი -->
+      <article
+        class="bg-brand-800 text-ink-50 relative flex min-h-[300px] flex-col overflow-hidden rounded-[28px] p-7 md:p-10"
+      >
+        <div
+          aria-hidden="true"
+          class="bg-brand-600 absolute -right-20 -bottom-24 size-[320px] rounded-full opacity-40 blur-3xl"
+        />
+        <div class="relative flex items-start justify-between gap-4">
+          <span
+            class="bg-brand-700 flex size-16 items-center justify-center overflow-hidden rounded-2xl"
+          >
+            <img
+              v-if="partner.photo"
+              :src="partner.photo"
+              :alt="partner.name[locale]"
+              loading="lazy"
+              class="size-full object-cover"
+            />
+            <AppIcon v-else :name="partner.icon" :size="30" />
+          </span>
+          <span class="latin text-brand-200 text-[12px]">{{ partner.saras }}</span>
         </div>
-      </aside>
+        <div class="relative mt-auto pt-12">
+          <h3 class="text-[26px] leading-snug font-bold md:text-[32px]">
+            {{ partner.name[locale] }}
+          </h3>
+          <p class="text-brand-100 mt-2 text-[15px]">{{ partner.role[locale] }}</p>
+        </div>
+      </article>
 
-      <div>
-        <ul v-reveal-group class="grid gap-4 sm:grid-cols-2">
-          <li
-            v-for="(m, i) in partners"
-            :key="m.id"
-            class="flex h-full min-h-[260px] flex-col rounded-[28px] p-7 transition-transform duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none"
-            :class="i === 0 ? 'bg-brand-800 text-ink-50' : 'bg-ink-50 border-ink-200 border'"
-          >
-            <div class="flex items-start justify-between">
-              <span
-                class="flex size-14 items-center justify-center overflow-hidden rounded-2xl"
-                :class="i === 0 ? 'bg-brand-700 text-ink-50' : 'bg-brand-50 text-brand-800'"
-              >
-                <img
-                  v-if="m.photo"
-                  :src="m.photo"
-                  :alt="m.name[locale]"
-                  loading="lazy"
-                  class="size-full object-cover"
-                />
-                <AppIcon v-else :name="m.icon" :size="28" />
-              </span>
-              <span
-                class="latin text-[12px]"
-                :class="i === 0 ? 'text-brand-200' : 'text-ink-400'"
-                >{{ m.saras }}</span
-              >
-            </div>
-            <h3
-              class="mt-auto pt-10 text-[22px] leading-snug font-bold"
-              :class="i === 0 ? '' : 'text-ink-900'"
-            >
-              {{ m.name[locale] }}
-            </h3>
-            <p class="mt-1 text-[14px]" :class="i === 0 ? 'text-brand-100' : 'text-ink-500'">
-              {{ m.role[locale] }}
-            </p>
-          </li>
-        </ul>
-
-        <ul v-reveal-group class="border-ink-200 mt-6 border-t">
-          <li
-            v-for="m in others"
-            :key="m.id"
-            class="group border-ink-200 hover:bg-brand-50 flex items-center gap-4 rounded-2xl border-b px-2 py-4 transition-colors duration-200 md:gap-6 md:px-4 md:py-5"
-          >
+      <!-- შემადგენლობა -->
+      <div class="bg-ink-100 rounded-[28px] p-7 md:p-10">
+        <h3 class="text-ink-900 text-[18px] font-bold">{{ t('about.team.composition') }}</h3>
+        <ul class="mt-6 space-y-4">
+          <li v-for="r in roles" :key="r.key" class="flex items-center gap-4">
             <span
-              class="bg-ink-100 text-ink-700 group-hover:bg-brand-800 group-hover:text-ink-50 flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-full transition-colors duration-200"
+              class="bg-ink-50 text-brand-800 flex size-11 shrink-0 items-center justify-center rounded-full"
             >
-              <img
-                v-if="m.photo"
-                :src="m.photo"
-                :alt="m.name[locale]"
-                loading="lazy"
-                class="size-full object-cover"
-              />
-              <AppIcon v-else :name="m.icon" :size="20" />
+              <AppIcon :name="r.icon" :size="20" />
             </span>
-            <div class="min-w-0 flex-1 md:grid md:grid-cols-2 md:items-center md:gap-6">
-              <h3 class="text-ink-900 text-[16px] font-semibold md:text-[17px]">
-                {{ m.name[locale] }}
-              </h3>
-              <p class="text-ink-500 text-[14px]">{{ m.role[locale] }}</p>
-            </div>
+            <span class="text-ink-800 text-[15px] leading-snug">
+              {{ t(`about.team.roles.${r.key}`) }}
+            </span>
           </li>
         </ul>
       </div>

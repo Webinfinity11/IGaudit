@@ -78,7 +78,7 @@
         "market": "In business",
         "marketValue": "since 2011",
         "team": "Team",
-        "teamValue": "2 auditors, 5 accountants",
+        "teamValue": "Auditors, accountants, lawyer",
         "liability": "Liability",
         "liabilityValue": "insured"
       }
@@ -89,8 +89,8 @@
       "text": "IG GROUP helps companies simplify their financial tasks so they can devote their time and energy to growing the business. Our approach is built on an in-depth understanding of each client's needs.",
       "stats": {
         "years": "years in business",
-        "auditors": "certified auditors",
-        "accountants": "chief accountants",
+        "services": "service areas",
+        "clients": "companies trust us",
         "since": "in business since"
       }
     },
@@ -129,7 +129,7 @@
       },
       "team": {
         "title": "Team",
-        "text": "2 certified auditors, 5 chief accountants and a lawyer."
+        "text": "Certified auditors, chief accountants and a lawyer."
       }
     },
     "cta": {
@@ -182,13 +182,13 @@
     "team": {
       "title": "Our team",
       "intro": "Our team brings together certified auditors, experienced accountants and a lawyer, so your financial, tax and legal matters are handled in one place.",
-      "total": "professionals on one team",
       "roles": {
         "auditors": "Certified auditors",
         "accountants": "Chief accountants",
-        "pm": "Project manager",
-        "lawyer": "Lawyer"
-      }
+        "pm": "Project management",
+        "lawyer": "Legal counsel"
+      },
+      "composition": "Team composition"
     },
     "insurance": {
       "title": "Professional insurance",
@@ -203,8 +203,7 @@
     "titleAccent": "in trusted hands",
     "lead": "IG GROUP is a registered audit firm ({saras}) offering companies audit, accounting, tax, consulting and valuation services. The company has been operating since 2011.",
     "stats": {
-      "years": "years in business",
-      "team": "professionals on the team"
+      "years": "years in business"
     }
   },
   "clients": {
@@ -226,7 +225,7 @@
     "other": "Other services",
     "titleLead": "Financial services",
     "titleAccent": "in one place",
-    "firmCard": "2 certified auditors · professional liability insured"
+    "firmCard": "Certified auditors · professional liability insured"
   },
   "services": {
     "audit": {

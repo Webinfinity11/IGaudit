@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { clients } from '@/content/clients'
 import { company } from '@/content/company'
+import { services } from '@/content/services'
 import CountUp from '@/components/motion/CountUp.vue'
 import ScrollWords from '@/components/motion/ScrollWords.vue'
 
 const { t } = useI18n()
 const stats = computed(() => [
   { n: new Date().getFullYear() - company.foundedYear, s: '+', l: t('home.about.stats.years') },
-  { n: 2, s: '', l: t('home.about.stats.auditors') },
-  { n: 5, s: '', l: t('home.about.stats.accountants') },
+  { n: services.length, s: '', l: t('home.about.stats.services') },
+  { n: clients.filter((c) => c.consent).length, s: '+', l: t('home.about.stats.clients') },
   { n: company.foundedYear, s: '', l: t('home.about.stats.since') },
 ])
 </script>

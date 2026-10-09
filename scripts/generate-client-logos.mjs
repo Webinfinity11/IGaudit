@@ -10,8 +10,8 @@ mkdirSync(out, { recursive: true })
 
 const W = 480
 const H = 240
-const BOX = { width: 400, height: 170 } // ლოგოს მაქს. ზომა ტილოზე
-const AREA = 300 * 95 // ვიზუალური წონის გათანაბრება: ფართობით, არა სიგანით
+const BOX = { width: 440, height: 200 } // ლოგოს მაქს. ზომა ტილოზე
+const AREA = 400 * 135 // ვიზუალური წონის გათანაბრება: ფართობით, არა სიგანით
 
 /** ფონის მოჭრა და ერთნაირ ტილოზე ცენტრში დასმა */
 async function place(input, slug, { threshold = 30 } = {}) {

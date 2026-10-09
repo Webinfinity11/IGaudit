@@ -36,7 +36,7 @@ const years = new Date().getFullYear() - company.foundedYear
       <li
         v-for="c in published"
         :key="c.logo"
-        class="group bg-ink-50 border-ink-200 hover:border-brand-200 hover:shadow-card relative flex aspect-[2/1] items-center justify-center overflow-hidden rounded-[28px] border p-4 transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none md:p-6"
+        class="group bg-ink-50 border-ink-200 hover:border-brand-200 hover:shadow-card relative flex aspect-[2/1] items-center justify-center overflow-hidden rounded-[28px] border p-3 transition duration-300 ease-out hover:-translate-y-1 motion-reduce:transform-none md:p-4"
       >
         <span
           aria-hidden="true"

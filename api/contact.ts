@@ -23,6 +23,8 @@ const oneLine = (s: string) => s.replace(/[\r\n]+/g, ' ').trim()
 // ბრენდის ფერები (src/styles/tokens.css): brand-800, accent-900, tint, ink
 const C = { plum: '#540061', forest: '#014501', tint: '#eee6ef', ink: '#1f1a20', muted: '#6b6470' }
 const SITE = 'https://igaudit.ge'
+// ლოგო წერილს თან ერთვის (cid) - გარე სურათს Webmail ყოველ ჯერზე „Allow“-ს სთხოვს
+const LOGO_CID = 'logo@igaudit.ge'
 
 /** ელფოსტის HTML: ცხრილებით და inline სტილებით - ფოსტის კლიენტები სხვას ცუდად აჩვენებენ */
 function emailHtml(f: Record<Field, string>, rows: [string, string][]) {
@@ -44,7 +46,7 @@ function emailHtml(f: Record<Field, string>, rows: [string, string][]) {
   <tr><td align="center" style="padding:32px 16px">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:20px;overflow:hidden">
       <tr><td style="background:${C.plum};padding:28px 32px">
-        <a href="${SITE}"><img src="${SITE}/images/email/logo-white.png" width="140" alt="IG GROUP" style="display:block;border:0"></a>
+        <a href="${SITE}"><img src="cid:${LOGO_CID}" width="140" alt="IG GROUP" style="display:block;border:0"></a>
       </td></tr>
       <tr><td style="padding:32px 32px 8px">
         <div style="${font};font-size:13px;color:${C.forest};font-weight:600">ახალი მოთხოვნა საიტიდან</div>
@@ -118,6 +120,9 @@ export async function POST(request: Request) {
       subject: oneLine(`ახალი მოთხოვნა საიტიდან: ${f.name}${f.service ? ` - ${f.service}` : ''}`),
       text: filled.map(([k, v]) => `${k}: ${v}`).join('\n'),
       html: emailHtml(f, filled),
+      attachments: [
+        { filename: 'logo.png', path: `${SITE}/images/email/logo-white.png`, cid: LOGO_CID },
+      ],
     })
   } catch (e) {
     console.error('contact: send failed', e)

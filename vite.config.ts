@@ -33,7 +33,15 @@ export default defineConfig(({ mode }) => {
         // სტატიკური ჰოსტინგები (Netlify, Cloudflare Pages, Vercel) ეძებენ /404.html-ს
         if (existsSync('dist/404/index.html')) copyFileSync('dist/404/index.html', 'dist/404.html')
         // sitemap.xml - every prerendered page except 404
-        const base = ['/', '/about', '/clients', '/services', '/contact', '/privacy'].concat(
+        const base = [
+          '/',
+          '/about',
+          '/clients',
+          '/services',
+          '/resources',
+          '/contact',
+          '/privacy',
+        ].concat(
           serviceSlugs.map((s) => `/services/${s}`),
           subServicePaths.map((p) => `/services/${p}`),
         )

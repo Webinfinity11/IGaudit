@@ -20,6 +20,13 @@ const rows = computed(
         latin: true,
       },
       {
+        icon: Phone,
+        label: t('common.phone'),
+        value: company.phone2,
+        href: company.phone2Href,
+        latin: true,
+      },
+      {
         icon: MapPin,
         label: t('common.address'),
         value: `${company.address[locale.value]}, ${company.city[locale.value]}`,
@@ -58,7 +65,7 @@ const rows = computed(
   <div class="bg-brand-800 text-ink-50 rounded-[28px] p-7 md:p-8">
     <h2 class="text-[20px] font-bold">{{ t('contact.infoTitle') }}</h2>
     <dl class="mt-6 space-y-5">
-      <div v-for="r in rows" :key="r.label" class="flex gap-4">
+      <div v-for="r in rows" :key="r.value" class="flex gap-4">
         <span class="bg-brand-700 flex size-10 shrink-0 items-center justify-center rounded-full">
           <component :is="r.icon" :size="18" :stroke-width="1.5" aria-hidden="true" />
         </span>

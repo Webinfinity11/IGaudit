@@ -77,7 +77,7 @@ if (slug.value && sub.value) {
           </p>
           <ul
             v-else-if="'ul' in b"
-            class="bg-ink-50 border-ink-200 mb-6 space-y-3 rounded-[24px] border p-6 md:p-7"
+            class="bg-tint border-tint mb-6 space-y-3 rounded-[24px] border p-6 md:p-7"
           >
             <li v-for="(it, j) in b.ul" :key="j" class="flex gap-3">
               <span class="bg-brand-800 mt-2.5 size-1.5 shrink-0 rounded-full" aria-hidden="true" />
@@ -86,7 +86,7 @@ if (slug.value && sub.value) {
           </ul>
           <ol
             v-else-if="'ol' in b"
-            class="bg-ink-50 border-ink-200 divide-ink-200 mb-6 divide-y rounded-[24px] border px-6 md:px-7"
+            class="bg-tint border-tint divide-brand-300/60 mb-6 divide-y rounded-[24px] border px-6 md:px-7"
           >
             <li v-for="(it, j) in b.ol" :key="j" class="flex gap-4 py-4">
               <span

@@ -17,6 +17,10 @@
       "title": "Services",
       "description": "Audit, accounting, tax, consulting and valuation services in one place - IG GROUP."
     },
+    "resources": {
+      "title": "Useful resources",
+      "description": "Official websites in one place: Legislative Herald, Revenue Service, Ministry of Finance, SARAS, Public Registry and more."
+    },
     "contact": {
       "title": "Contact",
       "description": "Contact us: 4 Nodar Bokhua St., Mion Business Center, +995 593 56 15 90. Share your task and we will offer a tailored solution."
@@ -53,6 +57,7 @@
     "clients": "Clients",
     "services": "Services",
     "allServices": "All services",
+    "resources": "Resources",
     "contact": "Contact",
     "privacy": "Privacy Policy",
     "mainMenu": "Main menu",
@@ -99,7 +104,7 @@
     "services": {
       "eyebrow": "Services",
       "title": "How we can help",
-      "text": "Six areas that cover your company's financial, tax and valuation needs."
+      "text": "Seven areas that cover your company's financial, tax and valuation needs."
     },
     "why": {
       "eyebrow": "Why IG GROUP",
@@ -136,7 +141,7 @@
     },
     "cta": {
       "title": "Focused on tomorrow",
-      "text": "Share your task with us. We will get back to you with a solution tailored to your needs."
+      "text": "Ask us a question and we will get back to you shortly."
     },
     "statement": "IG GROUP — financial accuracy for your business growth."
   },
@@ -211,7 +216,6 @@
   "clients": {
     "titleLead": "Companies that",
     "titleAccent": "trust us",
-    "lead": "Since 2011 we have helped companies in aviation, wine, trade, manufacturing and services manage their financial and tax matters.",
     "gridTitle": "Client logos",
     "logoAlt": "Client logo",
     "years": "years on the market",
@@ -222,7 +226,7 @@
   "servicesPage": {
     "eyebrow": "Services",
     "title": "Financial services in one place",
-    "intro": "From audit to business valuation: six areas that cover your company's financial, tax and valuation needs.",
+    "intro": "From audit to property valuation: seven areas that cover your company's financial, tax and valuation needs.",
     "includes": "The service includes:",
     "other": "Other services",
     "titleLead": "Financial services",
@@ -235,7 +239,7 @@
     "audit": {
       "title": "Audit and Assurance",
       "short": "Audit and review of financial statements, reporting and compilation.",
-      "heading": "An independent opinion people trust",
+      "heading": "Audit and assurance services",
       "intro": "Reliable financial information builds the trust of investors, banks and partners in your company. We audit in line with International Standards on Auditing (ISA).",
       "subs": {
         "audit": {
@@ -267,13 +271,25 @@
           "title": "Tax Compliance",
           "short": "Reviewing tax reporting and eliminating risks."
         },
+        "tax-returns": {
+          "title": "Tax Return Preparation",
+          "short": "Preparing and filing returns on time."
+        }
+      }
+    },
+    "disputes": {
+      "title": "Disputes",
+      "short": "Tax and court disputes: representation and expert support.",
+      "heading": "Protecting your interests at every stage of a dispute",
+      "intro": "We stand by you both in disputes with the tax authorities and in court proceedings, preparing documentation, financial analysis and a well-founded position.",
+      "subs": {
         "tax-disputes": {
           "title": "Tax Disputes",
           "short": "Representation at every stage of audits and disputes."
         },
-        "tax-returns": {
-          "title": "Tax Return Preparation",
-          "short": "Preparing and filing returns on time."
+        "litigation-support": {
+          "title": "Litigation Support",
+          "short": "Damages, commercial disputes, financial expert analysis."
         }
       }
     },
@@ -303,17 +319,13 @@
     },
     "consulting": {
       "title": "Business Advisory",
-      "short": "Corporate finance, litigation support and risk advisory.",
+      "short": "Corporate finance and risk advisory.",
       "heading": "Time to seek financial advice from experts",
       "intro": "An important business decision requires precise financial and tax analysis. We help you make the right choice.",
       "subs": {
         "business-consulting": {
           "title": "Business Advisory and Corporate Finance",
           "short": "M&A, due diligence, valuation."
-        },
-        "litigation-support": {
-          "title": "Litigation Support",
-          "short": "Damages, commercial disputes, financial investigations."
         },
         "risk-consulting": {
           "title": "Risk Advisory",
@@ -327,24 +339,30 @@
       "heading": "Objective valuation for the right decision",
       "intro": "A well-founded estimate of market value for a bank, a court, a purchase or sale, or accounting purposes.",
       "items": [
-        "Valuation of real estate (residential, commercial, land);",
-        "Valuation of movable property (vehicles, machinery and equipment, inventory);",
-        "Preparation of an official valuation report."
+        "Real estate valuation",
+        "Movable property valuation"
       ]
     },
     "business-valuation": {
       "title": "Business valuation",
       "short": "Well-founded valuation of a company or an equity stake.",
       "heading": "Know the real value of your business",
-      "intro": "Valuing a company or a stake is essential when attracting investment, buying or selling a share, reorganising, or in a dispute.",
-      "items": [
-        "Valuation of enterprises and equity stakes;",
-        "Valuation of intangible assets;",
-        "A valuation report with a justified methodology."
-      ]
+      "intro": "Valuing a company or a stake is essential when attracting investment, buying or selling a share, reorganising, or in a dispute."
     },
     "other": {
       "title": "Other"
+    }
+  },
+  "resources": {
+    "titleLead": "Useful",
+    "titleAccent": "resources",
+    "lead": "Official websites that help with everyday financial, tax and legal matters.",
+    "newTab": "opens in a new tab",
+    "groups": {
+      "law": "Legislation",
+      "tax": "Tax",
+      "finance": "Finance and reporting",
+      "registry": "Courts and registry"
     }
   },
   "contact": {

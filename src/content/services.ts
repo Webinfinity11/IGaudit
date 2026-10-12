@@ -4,6 +4,7 @@
 export const serviceSlugs = [
   'audit',
   'tax',
+  'disputes',
   'outsourcing',
   'consulting',
   'property-valuation',
@@ -33,30 +34,37 @@ export const services: Service[] = [
     icon: 'ShieldAlert',
     order: 2,
     photo: 'hero',
-    subs: [
-      'tax-consulting',
-      'transaction-advisory',
-      'tax-compliance',
-      'tax-disputes',
-      'tax-returns',
-    ],
+    subs: ['tax-consulting', 'transaction-advisory', 'tax-compliance', 'tax-returns'],
+  },
+  {
+    slug: 'disputes',
+    icon: 'Scale',
+    order: 3,
+    photo: 'stamp',
+    subs: ['tax-disputes', 'litigation-support'],
   },
   {
     slug: 'outsourcing',
     icon: 'Calculator',
-    order: 3,
+    order: 4,
     photo: 'desk',
     subs: ['bookkeeping', 'payroll', 'finance-manager', 'chief-accountant'],
   },
   {
     slug: 'consulting',
     icon: 'MessagesSquare',
-    order: 4,
+    order: 5,
     photo: 'binders',
-    subs: ['business-consulting', 'litigation-support', 'risk-consulting'],
+    subs: ['business-consulting', 'risk-consulting'],
   },
-  { slug: 'property-valuation', icon: 'Building2', order: 5, photo: 'hero', subs: [] },
-  { slug: 'business-valuation', icon: 'TrendingUp', order: 6, photo: 'desk', subs: [] },
+  { slug: 'property-valuation', icon: 'Building2', order: 6, photo: 'hero', subs: [] },
+  {
+    slug: 'business-valuation',
+    icon: 'TrendingUp',
+    order: 7,
+    photo: 'desk',
+    subs: [],
+  },
 ]
 
 /** ყველა ქვე-სერვისის გზა: `audit/reporting-compilation` */

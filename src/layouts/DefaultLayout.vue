@@ -64,7 +64,9 @@ onMounted(() => {
   <ScrollProgress />
   <AppHeader />
   <main id="main" tabindex="-1" class="outline-none">
-    <RouterView />
+    <!-- key: იგივე გვერდის კომპონენტი (მაგ. /services/tax → /services/audit) თავიდან იტვირთება,
+         თორემ ახალი ბლოკები v-reveal-ის ანიმაციას ვერ იღებენ და უხილავი რჩებიან -->
+    <RouterView :key="route.path" />
   </main>
   <AppFooter />
   <CookieBanner />

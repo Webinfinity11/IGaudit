@@ -36,7 +36,7 @@ watch(
 )
 
 const pill =
-  'inline-flex items-center gap-1 rounded-pill px-4 py-2 text-[14px] transition-colors duration-200'
+  'inline-flex items-center gap-1 whitespace-nowrap rounded-pill px-3 py-2 text-[14px] transition-colors duration-200 xl:px-4'
 const pillIdle = computed(() =>
   dark.value ? 'text-ink-50 hover:bg-ink-50/15' : 'text-ink-700 hover:bg-ink-50',
 )
@@ -83,6 +83,11 @@ const pillActive = 'bg-ink-50 !text-brand-800 font-medium shadow-card'
           </li>
           <li><NavDropdown :pill-class="[pill, pillIdle]" :active-class="pillActive" /></li>
           <li>
+            <RouterLink :to="to('resources')" :class="[pill, pillIdle]" :active-class="pillActive">
+              {{ t('nav.resources') }}
+            </RouterLink>
+          </li>
+          <li>
             <RouterLink :to="to('contact')" :class="[pill, pillIdle]" :active-class="pillActive">
               {{ t('nav.contact') }}
             </RouterLink>
@@ -94,7 +99,13 @@ const pillActive = 'bg-ink-50 !text-brand-800 font-medium shadow-card'
         <!-- wrapper: კომპონენტების საკუთარი inline-flex „hidden“-ს გადაფარავდა -->
         <div class="hidden items-center gap-3 lg:flex">
           <LangSwitcher :dark="dark" />
-          <BaseButton :to="to('contact')" :variant="dark ? 'light' : 'primary'" size="sm">
+          <!-- 1024–1280px: მენიუ ერთ ხაზზე რომ დაეტიოს, ღილაკი იმალება (მენიუში „კონტაქტი“ არის) -->
+          <BaseButton
+            :to="to('contact')"
+            :variant="dark ? 'light' : 'primary'"
+            size="sm"
+            class="!hidden xl:!inline-flex"
+          >
             {{ t('common.contactUs') }}
           </BaseButton>
         </div>

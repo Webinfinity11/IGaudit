@@ -16,6 +16,7 @@ export type PageName =
   | 'services'
   | 'service'
   | 'subservice'
+  | 'resources'
   | 'contact'
   | 'privacy'
   | 'notFound'
@@ -31,6 +32,7 @@ const pages: { page: PageName; path: string; component: RouteRecordRaw['componen
     path: 'services/:slug/:sub',
     component: () => import('@/pages/SubServicePage.vue'),
   },
+  { page: 'resources', path: 'resources', component: () => import('@/pages/ResourcesPage.vue') },
   { page: 'contact', path: 'contact', component: () => import('@/pages/ContactPage.vue') },
   { page: 'privacy', path: 'privacy', component: () => import('@/pages/PrivacyPage.vue') },
   { page: 'notFound', path: '404', component: () => import('@/pages/NotFoundPage.vue') },

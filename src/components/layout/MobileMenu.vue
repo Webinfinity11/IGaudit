@@ -122,6 +122,14 @@ const linkClass = 'block border-b border-ink-200 py-4 text-lg font-medium text-i
         </div>
 
         <RouterLink
+          :to="to('resources')"
+          :class="linkClass"
+          active-class="!text-brand-800"
+          @click="emit('close')"
+        >
+          {{ t('nav.resources') }}
+        </RouterLink>
+        <RouterLink
           :to="to('contact')"
           :class="linkClass"
           active-class="!text-brand-800"

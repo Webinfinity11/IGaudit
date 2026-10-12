@@ -19,6 +19,26 @@
       "source": "/en/services/accounting",
       "destination": "/en/services/outsourcing",
       "permanent": true
+    },
+    {
+      "source": "/services/tax/tax-disputes",
+      "destination": "/services/disputes/tax-disputes",
+      "permanent": true
+    },
+    {
+      "source": "/services/consulting/litigation-support",
+      "destination": "/services/disputes/litigation-support",
+      "permanent": true
+    },
+    {
+      "source": "/en/services/tax/tax-disputes",
+      "destination": "/en/services/disputes/tax-disputes",
+      "permanent": true
+    },
+    {
+      "source": "/en/services/consulting/litigation-support",
+      "destination": "/en/services/disputes/litigation-support",
+      "permanent": true
     }
   ]
 }

@@ -46,6 +46,9 @@ const link = 'hover:text-brand-800 transition-colors'
             <RouterLink :to="to('services')" :class="link">{{ t('nav.services') }}</RouterLink>
           </li>
           <li>
+            <RouterLink :to="to('resources')" :class="link">{{ t('nav.resources') }}</RouterLink>
+          </li>
+          <li>
             <RouterLink :to="to('contact')" :class="link">{{ t('nav.contact') }}</RouterLink>
           </li>
         </ul>
@@ -71,6 +74,12 @@ const link = 'hover:text-brand-800 transition-colors'
             <a :href="company.phoneHref" class="latin flex gap-3" :class="link">
               <Phone :size="18" class="text-brand-700 shrink-0" aria-hidden="true" />
               {{ company.phone }}
+            </a>
+          </li>
+          <li>
+            <a :href="company.phone2Href" class="latin flex gap-3" :class="link">
+              <Phone :size="18" class="text-brand-700 shrink-0" aria-hidden="true" />
+              {{ company.phone2 }}
             </a>
           </li>
           <li v-if="company.email">

@@ -5,9 +5,7 @@ import { services, type ServiceSlug } from '@/content/services'
 import { useLocale } from './useLocale'
 
 /** ქვე-სერვისები, რომლებიც მენიუში ცალკე პუნქტადაც ჩანს (მშობელი მიმართულების შემდეგ) */
-const featured: { parent: ServiceSlug; sub: string; icon: string }[] = [
-  { parent: 'tax', sub: 'tax-disputes', icon: 'Scale' },
-]
+const featured: { parent: ServiceSlug; sub: string; icon: string }[] = []
 
 export interface ServiceMenuItem {
   key: string

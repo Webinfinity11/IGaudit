@@ -207,6 +207,22 @@ const jobs = [
       })
     },
   },
+  // DaTene: ვერტიკალური → ჰორიზონტალური
+  {
+    slug: 'datene',
+    file: 'WhatsApp Image 2026-10-09 at 15.37.53.jpeg',
+    make: async (p) => stackToRow(await whiteToAlpha(p), [90, 440], [545, 590], 0.8),
+  },
+  // Bazari Orbeliani: თეთრი წარწერა ნარინჯისფერ ფონზე → ნარინჯისფერი წარწერა
+  { slug: 'bazari', file: 'images (1).png', make: (p) => lightTextToColor(p, [226, 80, 10]) },
+  { slug: 'fortuna', file: 'images.png', make: whiteToAlpha },
+  { slug: 'profbeauty', file: 'profbeauty.png', make: (p) => sharp(p).png().toBuffer() },
+  // GFM: თეთრი ხაზოვანი ლოგო გამჭვირვალეზე → მუქი
+  {
+    slug: 'gfm',
+    file: 'GFM_White.png',
+    make: (p) => mapPixels(p, (r, g, b, a) => [42, 42, 42, a]),
+  },
 ]
 
 for (const { slug, file, make } of jobs) {

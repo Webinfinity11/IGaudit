@@ -25,7 +25,6 @@ const years = new Date().getFullYear() - company.foundedYear
         {{ t('clients.titleLead') }}
         <span class="text-brand-800">{{ t('clients.titleAccent') }}</span>
       </h1>
-      <p class="text-ink-600 text-[16px] leading-relaxed">{{ t('clients.lead') }}</p>
     </div>
   </PageHero>
 

@@ -12,10 +12,58 @@ const json = (body: unknown, status = 200) =>
   })
 
 const escape = (s: string) =>
-  s.replace(/[&<>"']/g, (c) => `&${{ '&': 'amp', '<': 'lt', '>': 'gt', '"': 'quot', "'": '#39' }[c]};`)
+  s.replace(
+    /[&<>"']/g,
+    (c) => `&${{ '&': 'amp', '<': 'lt', '>': 'gt', '"': 'quot', "'": '#39' }[c]};`,
+  )
 
 // სათაურებში ახალი ხაზი არ უნდა მოხვდეს (header injection)
 const oneLine = (s: string) => s.replace(/[\r\n]+/g, ' ').trim()
+
+// ბრენდის ფერები (src/styles/tokens.css): brand-800, accent-900, tint, ink
+const C = { plum: '#540061', forest: '#014501', tint: '#eee6ef', ink: '#1f1a20', muted: '#6b6470' }
+const SITE = 'https://igaudit.ge'
+
+/** ელფოსტის HTML: ცხრილებით და inline სტილებით - ფოსტის კლიენტები სხვას ცუდად აჩვენებენ */
+function emailHtml(f: Record<Field, string>, rows: [string, string][]) {
+  const font = "font-family:'Segoe UI',Arial,'Noto Sans Georgian',sans-serif"
+  const cells = rows
+    .map(
+      ([k, v], i) => `
+      <tr>
+        <td style="padding:14px 0;${i ? `border-top:1px solid ${C.tint};` : ''}">
+          <div style="${font};font-size:12px;color:${C.muted};text-transform:uppercase;letter-spacing:.04em">${k}</div>
+          <div style="${font};font-size:16px;line-height:1.5;color:${C.ink};margin-top:4px">${escape(v).replace(/\n/g, '<br>')}</div>
+        </td>
+      </tr>`,
+    )
+    .join('')
+  const reply = `mailto:${encodeURIComponent(f.email)}?subject=${encodeURIComponent('Re: IG GROUP')}`
+  return `<!doctype html><html><body style="margin:0;padding:0;background:${C.tint}">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${C.tint}">
+  <tr><td align="center" style="padding:32px 16px">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:20px;overflow:hidden">
+      <tr><td style="background:${C.plum};padding:28px 32px">
+        <a href="${SITE}"><img src="${SITE}/images/email/logo-white.png" width="140" alt="IG GROUP" style="display:block;border:0"></a>
+      </td></tr>
+      <tr><td style="padding:32px 32px 8px">
+        <div style="${font};font-size:13px;color:${C.forest};font-weight:600">ახალი მოთხოვნა საიტიდან</div>
+        <div style="${font};font-size:22px;line-height:1.3;color:${C.ink};font-weight:700;margin-top:6px">${escape(f.name)}${f.service ? ` · ${escape(f.service)}` : ''}</div>
+      </td></tr>
+      <tr><td style="padding:8px 32px 8px">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cells}</table>
+      </td></tr>
+      <tr><td style="padding:16px 32px 32px">
+        <a href="${reply}" style="${font};display:inline-block;background:${C.plum};color:#ffffff;text-decoration:none;font-size:15px;font-weight:600;padding:12px 24px;border-radius:999px">პასუხის გაცემა</a>
+        <a href="tel:${escape(f.phone.replace(/[^\d+]/g, ''))}" style="${font};display:inline-block;color:${C.plum};text-decoration:none;font-size:15px;font-weight:600;padding:12px 16px">დარეკვა</a>
+      </td></tr>
+      <tr><td style="background:${C.tint};padding:16px 32px;${font};font-size:12px;color:${C.muted}">
+        გაიგზავნა igaudit.ge-ს საკონტაქტო ფორმიდან
+      </td></tr>
+    </table>
+  </td></tr>
+</table></body></html>`
+}
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>
@@ -33,7 +81,12 @@ export async function POST(request: Request) {
     const v = typeof body[key] === 'string' ? (body[key] as string).trim() : ''
     f[key] = v.slice(0, LIMITS[key])
   }
-  if (!f.name || !f.phone || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email) || body.consent !== 'yes') {
+  if (
+    !f.name ||
+    !f.phone ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email) ||
+    body.consent !== 'yes'
+  ) {
     return json({ success: false, error: 'invalid' }, 400)
   }
 
@@ -64,12 +117,7 @@ export async function POST(request: Request) {
       replyTo: { name: oneLine(f.name), address: f.email },
       subject: oneLine(`ახალი მოთხოვნა საიტიდან: ${f.name}${f.service ? ` - ${f.service}` : ''}`),
       text: filled.map(([k, v]) => `${k}: ${v}`).join('\n'),
-      html: `<table cellpadding="6" style="font-family:sans-serif;font-size:14px">${filled
-        .map(
-          ([k, v]) =>
-            `<tr><td style="color:#666;vertical-align:top">${k}</td><td>${escape(v).replace(/\n/g, '<br>')}</td></tr>`,
-        )
-        .join('')}</table>`,
+      html: emailHtml(f, filled),
     })
   } catch (e) {
     console.error('contact: send failed', e)

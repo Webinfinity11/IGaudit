@@ -133,7 +133,8 @@ export function useContactForm(initialService: ServiceChoice = '') {
 
     status.value = 'sending'
     try {
-      const endpoint = import.meta.env.VITE_FORM_ENDPOINT || 'https://api.web3forms.com/submit'
+      // ნაგულისხმევად - საკუთარი Vercel ფუნქცია (api/contact.ts, ჰოსტინგის SMTP)
+      const endpoint = import.meta.env.VITE_FORM_ENDPOINT || '/api/contact'
       const payload: Record<string, string> = {
         subject,
         from_name: fields.name.trim(),

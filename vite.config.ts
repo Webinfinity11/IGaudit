@@ -8,7 +8,7 @@ import { serviceSlugs, subServicePaths } from './src/content/services'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  const siteUrl = (env.VITE_SITE_URL || 'https://iggroup.ge').replace(/\/$/, '')
+  const siteUrl = (env.VITE_SITE_URL || 'https://igaudit.ge').replace(/\/$/, '')
   const enableEn = env.VITE_ENABLE_EN !== 'false'
 
   return {

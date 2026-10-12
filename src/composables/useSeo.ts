@@ -5,7 +5,7 @@ import { company } from '@/content/company'
 import { enEnabled } from '@/i18n'
 import { switchLocalePath } from './useLocale'
 
-export const siteUrl = (import.meta.env.VITE_SITE_URL || 'https://iggroup.ge').replace(/\/$/, '')
+export const siteUrl = (import.meta.env.VITE_SITE_URL || 'https://igaudit.ge').replace(/\/$/, '')
 
 /** `/` → `https://site/`, `/about/` → `https://site/about` (იგივე ფორმატი, რაც sitemap-ში) */
 function absoluteUrl(path: string) {

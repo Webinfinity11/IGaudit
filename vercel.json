@@ -39,6 +39,16 @@
       "source": "/en/services/consulting/litigation-support",
       "destination": "/en/services/disputes/litigation-support",
       "permanent": true
+    },
+    {
+      "source": "/mail",
+      "destination": "https://web-host.gen.in:2096",
+      "permanent": false
+    },
+    {
+      "source": "/webmail",
+      "destination": "https://web-host.gen.in:2096",
+      "permanent": false
     }
   ]
 }
